@@ -1,0 +1,23 @@
+{
+	"name": "elitecare_neondb",
+	"properties": {
+		"annotations": [],
+		"type": "PostgreSqlV2",
+		"typeProperties": {
+			"server": "ep-flat-brook-bbzqoqe0-pooler.c-15.us-east-1.aws.neon.tech",
+			"port": 5432,
+			"database": "neondb",
+			"username": "neondb_owner",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "elitecare_keyvault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "elitecare-neondb-password"
+			},
+			"sslMode": 2,
+			"authenticationType": "Basic"
+		}
+	}
+}

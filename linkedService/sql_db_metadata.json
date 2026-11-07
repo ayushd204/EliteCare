@@ -1,0 +1,23 @@
+{
+	"name": "sql_db_metadata",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "elitecare-server.database.windows.net",
+			"database": "elitecare_db",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "elitecare204",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "elitecare_keyvault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "azure-sql-metadata-tables"
+			}
+		}
+	}
+}

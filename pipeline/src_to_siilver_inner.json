@@ -141,9 +141,18 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"jobId": "415168422722854",
 					"jobParameters": {
 						"source_system": {
 							"value": "@activity('read_all_tables').output.firstRow.source_system",
+							"type": "Expression"
+						},
+						"table_name": {
+							"value": "@activity('read_all_tables').output.firstRow.bronze_table_name",
+							"type": "Expression"
+						},
+						"landing_timestamp": {
+							"value": "@variables('start_time')",
 							"type": "Expression"
 						}
 					}
@@ -177,6 +186,10 @@
 					"jobParameters": {
 						"source_system": {
 							"value": "@activity('read_all_tables').output.firstRow.silver_table_name",
+							"type": "Expression"
+						},
+						"landing_timestamp": {
+							"value": "@variables('start_time')",
 							"type": "Expression"
 						}
 					}

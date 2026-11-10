@@ -161,6 +161,30 @@
 					"referenceName": "elitecare_databricks",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Job1",
+				"type": "DatabricksJob",
+				"dependsOn": [
+					{
+						"activity": "source to landing",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "elitecare_databricks",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"parameters": {

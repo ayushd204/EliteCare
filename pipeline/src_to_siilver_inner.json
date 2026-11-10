@@ -184,7 +184,7 @@
 				"typeProperties": {
 					"jobId": "435330897096591",
 					"jobParameters": {
-						"source_system": {
+						"table_name": {
 							"value": "@activity('read_all_tables').output.firstRow.silver_table_name",
 							"type": "Expression"
 						},

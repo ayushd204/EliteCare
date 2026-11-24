@@ -11,7 +11,7 @@
 					"referenceName": "elitecare_keyvault",
 					"type": "LinkedServiceReference"
 				},
-				"secretName": "databricks-connection"
+				"secretName": "databricks-to-adf-connection"
 			}
 		}
 	}

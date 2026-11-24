@@ -141,7 +141,6 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"jobId": "415168422722854",
 					"jobParameters": {
 						"source_system": {
 							"value": "@activity('read_all_tables').output.firstRow.source_system",
@@ -175,14 +174,13 @@
 				],
 				"policy": {
 					"timeout": "0.12:00:00",
-					"retry": 0,
+					"retry": 2,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
 					"secureInput": false
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"jobId": "435330897096591",
 					"jobParameters": {
 						"table_name": {
 							"value": "@activity('read_all_tables').output.firstRow.silver_table_name",

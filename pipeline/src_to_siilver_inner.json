@@ -422,14 +422,18 @@
 												"folder": {
 													"value": "@activity('read_all_tables').output.firstRow.source_path",
 													"type": "Expression"
-												}
+												},
+												"container": "source"
 											}
 										}
 									],
 									"outputs": [
 										{
 											"referenceName": "csv_binary",
-											"type": "DatasetReference"
+											"type": "DatasetReference",
+											"parameters": {
+												"container": "landing"
+											}
 										}
 									]
 								}

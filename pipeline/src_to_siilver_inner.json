@@ -204,7 +204,14 @@
 			{
 				"name": "update_success_status",
 				"type": "Script",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "bronze_to_silver",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 2,
@@ -250,7 +257,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(activity('read_all_tables').output.firstRow.load_type, 'FULL')",
+						"value": "@not(equals(activity('read_all_tables').output.firstRow.load_type, 'FULL'))",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [
@@ -323,7 +330,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@equals(activity('read_all_tables').output.firstRow.load_type, 'FULL')",
+						"value": "@not(equals(activity('read_all_tables').output.firstRow.load_type, 'FULL'))",
 						"type": "Expression"
 					},
 					"ifTrueActivities": [

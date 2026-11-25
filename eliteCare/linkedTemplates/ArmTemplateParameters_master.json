@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "eliteCare"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://elitecare.dfs.core.windows.net/"
+		},
+		"elitecare_keyvault_properties_typeProperties_baseUrl": {
+			"value": "https://elite-care-secrets.vault.azure.net/"
+		},
+		"elitecare_neondb_properties_typeProperties_server": {
+			"value": "ep-flat-brook-bbzqoqe0-pooler.c-15.us-east-1.aws.neon.tech"
+		},
+		"elitecare_neondb_properties_typeProperties_database": {
+			"value": "neondb"
+		},
+		"elitecare_neondb_properties_typeProperties_username": {
+			"value": "neondb_owner"
+		},
+		"sql_db_metadata_properties_typeProperties_server": {
+			"value": "elitecare-server.database.windows.net"
+		},
+		"sql_db_metadata_properties_typeProperties_database": {
+			"value": "elitecare_db"
+		},
+		"sql_db_metadata_properties_typeProperties_userName": {
+			"value": "elitecare204"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

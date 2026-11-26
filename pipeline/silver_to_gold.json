@@ -34,8 +34,6 @@
 			{
 				"name": "ingest_all_tables",
 				"type": "ForEach",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "read_source_tables",
@@ -148,6 +146,42 @@
 							"linkedServiceName": {
 								"referenceName": "elitecare_databricks",
 								"type": "LinkedServiceReference"
+							}
+						},
+						{
+							"name": "update_success_status",
+							"type": "Script",
+							"dependsOn": [
+								{
+									"activity": "silver_to_gold",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 2,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"linkedServiceName": {
+								"referenceName": "sql_db_metadata",
+								"type": "LinkedServiceReference"
+							},
+							"typeProperties": {
+								"scripts": [
+									{
+										"type": "Query",
+										"text": {
+											"value": "UPDATE ctrl.audit_log\nset status='SUCCESS',end_time=SYSUTCDATETIME(),\nrecords_written=100\nwhere adf_run_id='@{pipeline().parameters.adf_run_id}' and table_id=@{item().gold_table_name}",
+											"type": "Expression"
+										}
+									}
+								],
+								"scriptBlockExecutionTimeout": "02:00:00"
 							}
 						}
 					]

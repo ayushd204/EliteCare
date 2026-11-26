@@ -147,6 +147,23 @@
 								],
 								"scriptBlockExecutionTimeout": "02:00:00"
 							}
+						},
+						{
+							"name": "inner_pipeline_check",
+							"type": "Fail",
+							"dependsOn": [
+								{
+									"activity": "source_to_silver",
+									"dependencyConditions": [
+										"Failed"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"message": "failure_in_inner_pipeline",
+								"errorCode": "500"
+							}
 						}
 					]
 				}

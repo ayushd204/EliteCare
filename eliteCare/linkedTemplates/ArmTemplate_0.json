@@ -1018,6 +1018,23 @@
 										],
 										"scriptBlockExecutionTimeout": "02:00:00"
 									}
+								},
+								{
+									"name": "failure_silver_gold",
+									"type": "Fail",
+									"dependsOn": [
+										{
+											"activity": "silver_to_gold",
+											"dependencyConditions": [
+												"Failed"
+											]
+										}
+									],
+									"userProperties": [],
+									"typeProperties": {
+										"message": "failure_silver_to_gold",
+										"errorCode": "500"
+									}
 								}
 							]
 						}
